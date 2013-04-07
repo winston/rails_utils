@@ -4,7 +4,7 @@ This gem provides a Rails helper method that returns controller name and action 
 
 This can be used to target CSS styles specifically at this controller or action.
 
-For example, given current controller and action to be `anime#show`, 
+For example, when controller and action is `anime#show`, 
 you can use `page_class` to include the controller name and action name as CSS classes on the page.
 
     %body{ class: page_class }
@@ -21,12 +21,10 @@ Then in your CSS, you can either target your styles specific to controller and/o
     body.anime.show
       font-size: 24px
 
-Note `create` => `new` and `update` => `edit`..
+Usually, when the `create` or `update` actions render, the `new` or `edit` views will be rendered due to a form error.
 
-Usually, when the `create` or `update` actions render, they are in fact rendering the `new` or `edit` views as a result of a form error.
-
-Therefore the `page_class` converts `create` to `new` and `update` to `edit`
-so that you only need to write CSS to target either `new` and `edit`, and not all four.
+Therefore the `page_class` helper converts `create` to `new` and `update` to `edit`
+so that you only need to write CSS to target `new` and `edit`, and not all four actions.
 
 ## Installation
 
