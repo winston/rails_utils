@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_page_class (0.5.0)
+    rails_page_class (1.0.0)
       rails (~> 3.2.13)
 
 GEM

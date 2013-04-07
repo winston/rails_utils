@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/winston/rails_page_class"
   s.summary     = "Rails helper that returns controller name and action name as a string for use as a CSS class."
   s.description = "This gem provides a Rails helper method that returns controller name and action name as a single value.
-                   This can be used to target CSS styles specifically at this controller or action."
+                   Using that, it can target CSS styles specifically for a controller or action."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.markdown"]
   s.test_files = Dir["test/**/*"]
