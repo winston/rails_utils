@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = "This gem provides a Rails helper method that returns controller name and action name as a single value.
                    This can be used to target CSS styles specifically at this controller or action."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.markdown"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2.13"
