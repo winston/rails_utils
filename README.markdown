@@ -1,23 +1,26 @@
-# Rails Page Class
+# Rails Utils
 
-This gem provides a Rails helper method that returns controller name and action name as a single string value.
+Rails helpers based on opinionated project practices. Currently useful for structuring CSS and JS.
 
-This can be used to target CSS styles specifically at this controller or action.
+## #`page_class`
 
-For example, when controller and action is `anime#show`, 
+This helper method returns controller name and action name as a single string value,
+which can be used to target CSS styles specifically for this controller or action.
+
+For example, when controller and action is `anime#show`,
 you can use `page_class` to include the controller name and action name as CSS classes on the page.
 
     %body{ class: page_class }
-    
-becomes 
+
+becomes
 
     <body class='anime show'>
-    
+
 Then in your CSS, you can either target your styles specific to controller and/or action.
 
     body.anime
       background: black
-    
+
     body.anime.show
       font-size: 24px
 
@@ -26,9 +29,36 @@ Usually, when the `create` or `update` actions render, the `new` or `edit` views
 Therefore the `page_class` helper converts `create` to `new` and `update` to `edit`
 so that you only need to write CSS to target `new` and `edit`, and not all four actions.
 
+## #`javascript_initialization`
+
+This helper method attempts to initialize JavaScript classes and methods based on a standard structure.
+
+With this standard structure, calling your JavaScript has never been easier.
+
+Add `javascript_initialization` to the bottom your layout.
+
+    = javascript_initialization
+
+When application is MyApp, and controller/action is `anime#show`, `javascript_initialization` compiles to:
+
+    <script type="text/javascript">
+    //<![CDATA[
+            MyApp.init();
+            if(MyApp.anime) {
+              if(MyApp.anime.init) { MyApp.anime.init(); }
+              if(MyApp.anime.init_show) { MyApp.anime.init_show(); }
+            }
+
+    //]]>
+    </script>
+
+By looking at the compiled JavaScript output, it should be apparent on how you should structure your JavaScript.
+
+As similar to `page_class`, `create` is mapped to `new` and `update` is mapped to `edit`.
+
 ## Installation
 
-    gem install rails_page_class
+    gem install rails_utils
 
 ## Testing
 
@@ -39,7 +69,6 @@ Minitest-ed. To run all tests, just run `rake` or `rake test`.
 Rails Page Class is maintained by [Winston Teo](mailto:winstonyw+googlevisualr@gmail.com).
 
 Who is Winston Teo? [You should follow Winston on Twitter](http://www.twitter.com/winstonyw), or find out more on [WinstonYW](http://www.winstonyw.com) and [LinkedIn](http://sg.linkedin.com/in/winstonyw).
-
 
 ## License
 

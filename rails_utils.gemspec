@@ -10,9 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Winston Teo"]
   s.email       = ["winston.yongwei+rails_utils@gmail.com"]
   s.homepage    = "https://github.com/winston/rails_utils"
-  s.summary     = "Rails helper that returns controller name and action name as a string for use as a CSS class."
-  s.description = "This gem provides a Rails helper method that returns controller name and action name as a single value.
-                   Using that, it can target CSS styles specifically for a controller or action."
+  s.summary     = "Rails helpers based on opinionated project practices."
+  s.description = "Rails helpers based on opinionated project practices. Currently useful for structuring CSS and JS."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.markdown"]
   s.test_files = Dir["test/**/*"]
