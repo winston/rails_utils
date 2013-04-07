@@ -1,6 +1,6 @@
 require 'action_view'
 
-module RailsPageClass
+module RailsUtils
   module ActionViewExtensions
     def page_class
       "#{page_controller_class} #{page_action_class}"
@@ -32,4 +32,4 @@ module RailsPageClass
 end
 
 
-ActionView::Base.send :include, RailsPageClass::ActionViewExtensions
+ActionView::Base.send :include, RailsUtils::ActionViewExtensions

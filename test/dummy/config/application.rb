@@ -9,7 +9,7 @@ require "active_resource/railtie"
 require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "rails_page_class"
+require "rails_utils"
 
 module Dummy
   class Application < Rails::Application

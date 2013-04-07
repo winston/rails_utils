@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_page_class (1.0.0)
+    rails_utils (1.0.0)
       rails (~> 3.2.13)
 
 GEM
@@ -98,5 +98,5 @@ PLATFORMS
 DEPENDENCIES
   minitest (~> 4.7.0)
   mocha (~> 0.13.3)
-  rails_page_class!
+  rails_utils!
   turn (~> 0.9.6)

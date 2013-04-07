@@ -1,3 +1,3 @@
-module RailsPageClass
+module RailsUtils
   VERSION = "1.0.0"
 end

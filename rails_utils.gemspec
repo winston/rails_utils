@@ -1,15 +1,15 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "rails_page_class/version"
+require "rails_utils/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "rails_page_class"
-  s.version     = RailsPageClass::VERSION
+  s.name        = "rails_utils"
+  s.version     = RailsUtils::VERSION
   s.authors     = ["Winston Teo"]
-  s.email       = ["winston.yongwei+rails_page_class@gmail.com"]
-  s.homepage    = "https://github.com/winston/rails_page_class"
+  s.email       = ["winston.yongwei+rails_utils@gmail.com"]
+  s.homepage    = "https://github.com/winston/rails_utils"
   s.summary     = "Rails helper that returns controller name and action name as a string for use as a CSS class."
   s.description = "This gem provides a Rails helper method that returns controller name and action name as a single value.
                    Using that, it can target CSS styles specifically for a controller or action."

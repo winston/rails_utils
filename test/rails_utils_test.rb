@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe "RailsPageClass::ActionViewExtensions" do
+describe "RailsUtils::ActionViewExtensions" do
 
   let(:controller)  { ActionController::Base.new }
   let(:view)        { ActionView::Base.new }
