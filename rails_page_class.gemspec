@@ -7,11 +7,12 @@ require "rails_page_class/version"
 Gem::Specification.new do |s|
   s.name        = "Rails Page Class"
   s.version     = RailsPageClass::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = ""
-  s.description = ""
+  s.authors     = ["Winston Teo"]
+  s.email       = ["winston.yongwei+rails_page_class@gmail.com"]
+  s.homepage    = "https://github.com/winston/rails_page_class"
+  s.summary     = "Rails helper that returns controller name and action name as a string for use as a CSS class."
+  s.description = "This gem provides a Rails helper method that returns controller name and action name as a single string value.
+                   This can be used to target CSS styles specifically at this controller or action."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
