@@ -5,7 +5,7 @@ require "rails_page_class/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "Rails Page Class"
+  s.name        = "rails_page_class"
   s.version     = RailsPageClass::VERSION
   s.authors     = ["Winston Teo"]
   s.email       = ["winston.yongwei+rails_page_class@gmail.com"]
