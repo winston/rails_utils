@@ -18,6 +18,20 @@ module RailsUtils
       JS
     end
 
+    def flash_messages
+      html = ""
+      flash.each do |key, message|
+        html <<
+          content_tag(:div, class: "#{flash_class(key)} fade in") do
+            content = ""
+            content << content_tag(:button, "x", type: "button", class: "close", "data-dismiss-alert" => "alert")
+            content << content_tag(:p, message)
+            content.html_safe
+          end
+      end
+      html
+    end
+
     private
 
     def page_controller_class
@@ -28,8 +42,22 @@ module RailsUtils
       class_mappings = { "create" => "new", "update" => "edit" }
       class_mappings[controller.action_name] || controller.action_name
     end
+
+    def flash_class(key)
+      case key
+        when :success
+          "alert alert-success"
+        when :notice
+          "alert alert-info"
+        when :error
+          "alert alert-error"
+        when :alert
+          "alert alert-error"
+        else
+          "alert alert-#{key}"
+      end
+    end
   end
 end
-
 
 ActionView::Base.send :include, RailsUtils::ActionViewExtensions

@@ -56,6 +56,21 @@ By looking at the compiled JavaScript output, it should be apparent on how you s
 
 As similar to `page_class`, `create` is mapped to `new` and `update` is mapped to `edit`.
 
+## #`flash_messages`
+
+This helper method prints Rails flash messages with classes that correspond to Bootstrap's convention.
+
+Just invoke `flash_messages` anywhere within `layout/application`.
+
+    = flash_messages
+
+Suppose there's a `flash[:success]`, you should see:
+
+    <div class="alert alert-success fade in">
+      <button class="close" data-dismiss-alert="alert" type="button">x</button>
+      <p>flash is success</p>
+    </div>
+
 ## Installation
 
     gem install rails_utils
@@ -66,7 +81,7 @@ Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
 ## Author
 
-Rails Page Class is maintained by [Winston Teo](mailto:winstonyw+googlevisualr@gmail.com).
+Rails Utils is maintained by [Winston Teo](mailto:winstonyw+googlevisualr@gmail.com).
 
 Who is Winston Teo? [You should follow Winston on Twitter](http://www.twitter.com/winstonyw), or find out more on [WinstonYW](http://www.winstonyw.com) and [LinkedIn](http://sg.linkedin.com/in/winstonyw).
 

@@ -1,11 +1,14 @@
 require 'test_helper'
 
 describe "RailsUtils::ActionViewExtensions" do
-
   let(:controller)  { ActionController::Base.new }
+  let(:request)     { ActionDispatch::Request.new(flash: {}) }
   let(:view)        { ActionView::Base.new }
 
-  before { view.controller = controller }
+  before do
+    controller.request = request
+    view.controller    = controller
+  end
 
   describe "#page_class" do
     # controller_name, action_name, expected
@@ -70,4 +73,41 @@ describe "RailsUtils::ActionViewExtensions" do
     end
   end
 
+  describe "#flash_messages" do
+    def set_flash(key, message)
+      controller.flash[key] = message
+    end
+
+    [
+      [ :success , /alert alert-success/, "flash is success" ],
+      [ :notice  , /alert alert-info/   , "flash is notice"  ],
+      [ :error   , /alert alert-error/  , "flash is error"   ],
+      [ :alert   , /alert alert-error/  , "flash is alert"   ],
+      [ :custom  , /alert alert-custom/ , "flash is custom"  ],
+    ].each do |key, expected_class, expected_message|
+      describe "when flash contains #{key} key" do
+        before { set_flash key, expected_message }
+
+        it "prints class '#{expected_class}'" do
+          view.flash_messages.must_match expected_class
+        end
+
+        it "prints message '#{expected_message}'" do
+          view.flash_messages.must_match expected_message
+        end
+      end
+    end
+
+    describe "when bootstrap is present" do
+      it "can fade in and out" do
+        set_flash :alert  , "not important"
+        view.flash_messages.must_match /fade in/
+      end
+
+      it "can be dismissed" do
+        set_flash :alert  , "not important"
+        view.flash_messages.must_match /data-dismiss-alert=.*alert/
+      end
+    end
+  end
 end
