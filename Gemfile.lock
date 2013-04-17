@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    rails_utils (2.0.0)
-      rails (~> 3.2.13)
+    rails_utils (2.1.0)
+      rails (>= 3.2)
 
 GEM
   remote: http://rubygems.org/
