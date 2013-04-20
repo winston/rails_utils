@@ -35,7 +35,7 @@ This helper method attempts to initialize JavaScript classes and methods based o
 
 With this standard structure, calling your JavaScript has never been easier.
 
-Add `javascript_initialization` to the bottom your layout.
+Add `javascript_initialization` to the bottom of your layout.
 
     = javascript_initialization
 
@@ -48,7 +48,6 @@ When application is MyApp, and controller/action is `anime#show`, `javascript_in
               if(MyApp.anime.init) { MyApp.anime.init(); }
               if(MyApp.anime.init_show) { MyApp.anime.init_show(); }
             }
-
     //]]>
     </script>
 
