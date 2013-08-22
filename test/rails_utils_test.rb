@@ -10,28 +10,49 @@ describe "RailsUtils::ActionViewExtensions" do
     view.controller    = controller
   end
 
-  describe "#page_class" do
-    # controller_name, action_name, expected
+  describe "#page_controller_class" do
+    let(:controller_name) { "anime" }
+
+    before { controller.stubs(:controller_name).returns(controller_name) }
+
+    it "returns controller name" do
+      view.page_controller_class.must_equal controller_name
+    end
+  end
+
+  describe "#page_action_class" do
+    # action_name, expected
     [
-      [ "anime", "index"  , "anime index"   ],
-      [ "anime", "show"   , "anime show"    ],
-      [ "anime", "new"    , "anime new"     ],
-      [ "anime", "create" , "anime new"     ],
-      [ "anime", "edit"   , "anime edit"    ],
-      [ "anime", "update" , "anime edit"    ],
-      [ "anime", "destroy", "anime destroy" ],
-      [ "anime", "custom" , "anime custom"  ],
-    ].each do |controller_name, action_name, expected|
-      describe "when #{controller_name} and #{action_name}" do
-        before do
-          controller.stubs(:controller_name).returns(controller_name)
-          controller.stubs(:action_name).returns(action_name)
-        end
+        [ "index"  , "index"   ],
+        [ "show"   , "show"    ],
+        [ "new"    , "new"     ],
+        [ "create" , "new"     ],
+        [ "edit"   , "edit"    ],
+        [ "update" , "edit"    ],
+        [ "destroy", "destroy" ],
+        [ "custom" , "custom"  ],
+    ].each do |action_name, expected|
+      describe "when ##{action_name}" do
+        before { controller.stubs(:action_name).returns(action_name) }
 
         it "returns #{expected}" do
-           view.page_class.must_equal expected
+          view.page_action_class.must_equal expected
         end
       end
+    end
+  end
+
+  describe "#page_class" do
+    let(:controller_name) { "anime" }
+    let(:action_name)     { "custom" }
+
+    before do
+      view.stubs(:page_controller_class).returns(controller_name)
+      view.stubs(:page_action_class).returns(action_name)
+    end
+
+    it "uses page_controller_class and page_action_class" do
+      view.page_class.must_equal "#{controller_name} #{action_name}"
     end
   end
 

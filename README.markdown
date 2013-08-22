@@ -29,6 +29,9 @@ Usually, when the `create` or `update` actions render, the `new` or `edit` views
 Therefore the `page_class` helper converts `create` to `new` and `update` to `edit`
 so that you only need to write CSS to target `new` and `edit`, and not all four actions.
 
+For finer grained control, you can also choose the use the 2 methods that are used to build `page_class` individually.
+The two methods are `page_controller_class` and `page_action_class`.
+
 ## #`javascript_initialization`
 
 This helper method attempts to initialize JavaScript classes and methods based on a standard structure.
@@ -54,6 +57,11 @@ When application is MyApp, and controller/action is `anime#show`, `javascript_in
 By looking at the compiled JavaScript output, it should be apparent on how you should structure your JavaScript.
 
 As similar to `page_class`, `create` is mapped to `new` and `update` is mapped to `edit`.
+
+    // Sample CoffeeScript to get you started
+    window.MyApplication =
+      init: ->
+        console.log("Init!")
 
 ## #`flash_messages`
 
