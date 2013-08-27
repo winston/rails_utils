@@ -2,6 +2,12 @@
 
 Rails helpers based on opinionated project practices. Currently useful for structuring CSS and JS.
 
+
+## Installation
+
+    gem install 'rails_utils'
+
+
 ## #`page_class`
 
 This helper method returns controller name and action name as a single string value,
@@ -78,20 +84,21 @@ Suppose there's a `flash[:success]`, you should see:
       <p>flash is success</p>
     </div>
 
-## Installation
 
-    gem install rails_utils
+## Contributing
 
-## Testing
+Pull Requests are very welcomed (with specs, of course)!
 
 Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
+
 ## Author
 
-Rails Utils is maintained by [Winston Teo](mailto:winstonyw+googlevisualr@gmail.com).
+Rails Utils is maintained by [Winston Teo](mailto:winstonyw+rails_utils@gmail.com).
 
-Who is Winston Teo? [You should follow Winston on Twitter](http://www.twitter.com/winstonyw), or find out more on [WinstonYW](http://www.winstonyw.com) and [LinkedIn](http://sg.linkedin.com/in/winstonyw).
+[You should follow Winston on Twitter](http://www.twitter.com/winstonyw), or find out more on [WinstonYW](http://www.winstonyw.com) and [LinkedIn](http://sg.linkedin.com/in/winstonyw).
+
 
 ## License
 
-Copyright © 2012 Winston Teo Yong Wei. Free software, released under the MIT license.
+Copyright © 2013 Winston Teo Yong Wei. Free software, released under the MIT license.
