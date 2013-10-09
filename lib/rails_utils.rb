@@ -35,7 +35,7 @@ module RailsUtils
             content = ""
             content << content_tag(:button, "x", type: "button", class: "close", "data-dismiss" => "alert")
             content << message
-            content
+            content.html_safe
           end
       end
       html.html_safe
