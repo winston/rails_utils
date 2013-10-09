@@ -33,12 +33,12 @@ module RailsUtils
         html <<
           content_tag(:div, class: "#{flash_class(key)} fade in") do
             content = ""
-            content << content_tag(:button, "x", type: "button", class: "close", "data-dismiss-alert" => "alert")
-            content << content_tag(:p, message)
-            content.html_safe
+            content << content_tag(:button, "x", type: "button", class: "close", "data-dismiss" => "alert")
+            content << message
+            content
           end
       end
-      html
+      html.html_safe
     end
 
     private

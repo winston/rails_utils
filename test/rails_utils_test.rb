@@ -127,7 +127,7 @@ describe "RailsUtils::ActionViewExtensions" do
 
       it "can be dismissed" do
         set_flash :alert  , "not important"
-        view.flash_messages.must_match /data-dismiss-alert=.*alert/
+        view.flash_messages.must_match /data-dismiss=.*alert/
       end
     end
   end
