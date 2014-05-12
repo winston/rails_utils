@@ -93,6 +93,12 @@ Pull Requests are very welcomed (with specs, of course)!
 
 Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
+## Changelog
+
+_Version 3.0.0_
+
+- Controller namespace is now included in `page_class` and `javascript_initialization`.
+Potentially app-breaking.
 
 ## Author
 
