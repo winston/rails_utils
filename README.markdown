@@ -97,8 +97,7 @@ Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
 _Version 3.0.0_
 
-- Controller namespace is now included in `page_class` and `javascript_initialization`.
-Potentially app-breaking.
+- Controller namespace added to `page_class` and `javascript_initialization`.
 
 ## Author
 
