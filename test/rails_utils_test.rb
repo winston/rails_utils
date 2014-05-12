@@ -11,12 +11,26 @@ describe "RailsUtils::ActionViewExtensions" do
   end
 
   describe "#page_controller_class" do
-    let(:controller_name) { "anime" }
+    describe "simple controller" do
+      let(:controller_class) { "Anime" }
+      let(:controller_name)  { "anime" }
 
-    before { controller.stubs(:controller_name).returns(controller_name) }
+      before { controller.stubs(:class).returns(controller_class) }
 
-    it "returns controller name" do
-      view.page_controller_class.must_equal controller_name
+      it "returns controller name" do
+        view.page_controller_class.must_equal controller_name
+      end
+    end
+
+    describe "simple controller" do
+      let(:controller_class) { "Awesome::Anime" }
+      let(:controller_name)  { "awesome_anime" }
+
+      before { controller.stubs(:class).returns(controller_class) }
+
+      it "returns controller name" do
+        view.page_controller_class.must_equal controller_name
+      end
     end
   end
 
@@ -57,10 +71,11 @@ describe "RailsUtils::ActionViewExtensions" do
   end
 
   describe "#javascript_initialization" do
-    let(:controller_name) { "anime" }
+    let(:controller_class) { "Awesome::Anime" }
+    let(:controller_name)  { "awesome_anime" }
 
     before do
-      controller.stubs(:controller_name).returns(controller_name)
+      controller.stubs(:class).returns(controller_class)
       controller.stubs(:action_name).returns(action_name)
     end
 
