@@ -12,7 +12,7 @@ describe "RailsUtils::ActionViewExtensions" do
 
   describe "#page_controller_class" do
     describe "simple controller" do
-      let(:controller_class) { "Anime" }
+      let(:controller_class) { "AnimeController" }
       let(:controller_name)  { "anime" }
 
       before { controller.stubs(:class).returns(controller_class) }
@@ -23,7 +23,7 @@ describe "RailsUtils::ActionViewExtensions" do
     end
 
     describe "simple controller" do
-      let(:controller_class) { "Awesome::Anime" }
+      let(:controller_class) { "Awesome::AnimeController" }
       let(:controller_name)  { "awesome_anime" }
 
       before { controller.stubs(:class).returns(controller_class) }
@@ -71,7 +71,7 @@ describe "RailsUtils::ActionViewExtensions" do
   end
 
   describe "#javascript_initialization" do
-    let(:controller_class) { "Awesome::Anime" }
+    let(:controller_class) { "Awesome::AnimeController" }
     let(:controller_name)  { "awesome_anime" }
 
     before do

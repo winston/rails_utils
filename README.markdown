@@ -95,6 +95,11 @@ Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
 ## Changelog
 
+_Version 3.1.0_
+
+- Drop string `controller` from `page_class` and `javascript_initialization`.
+
+
 _Version 3.0.0_
 
 - Controller namespace added to `page_class` and `javascript_initialization`.

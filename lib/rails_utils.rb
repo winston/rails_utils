@@ -3,7 +3,7 @@ require 'action_view'
 module RailsUtils
   module ActionViewExtensions
     def page_controller_class
-      controller.class.to_s.underscore.sub(/Controller$/, "").sub(/\//, "_")
+      controller.class.to_s.sub(/Controller$/, "").underscore.sub(/\//, "_")
     end
 
     def page_action_class
