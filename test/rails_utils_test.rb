@@ -117,9 +117,12 @@ describe "RailsUtils::ActionViewExtensions" do
     [
       [ :success , /alert alert-success/, "flash is success" ],
       [ :notice  , /alert alert-info/   , "flash is notice"  ],
+      [ "notice" , /alert alert-info/   , "flash is notice"  ],
       [ :error   , /alert alert-error/  , "flash is error"   ],
       [ :alert   , /alert alert-error/  , "flash is alert"   ],
+      [ "alert"  , /alert alert-error/  , "flash is alert"   ],
       [ :custom  , /alert alert-custom/ , "flash is custom"  ],
+      [ "custom" , /alert alert-custom/ , "flash is custom"  ]
     ].each do |key, expected_class, expected_message|
       describe "when flash contains #{key} key" do
         before { set_flash key, expected_message }
