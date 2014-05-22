@@ -31,7 +31,7 @@ module RailsUtils
       html = ""
       flash.each do |key, message|
         html <<
-          content_tag(:div, class: "#{flash_class(key)} fade in") do
+          content_tag(:div, class: "#{flash_class(key.to_sym)} fade in") do
             content = ""
             content << content_tag(:button, "x", type: "button", class: "close", "data-dismiss" => "alert")
             content << message
