@@ -95,6 +95,11 @@ Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
 ## Changelog
 
+_Version 3.1.1_
+
+- [Pull Request 1](https://github.com/winston/rails_utils/pull/2) Support for Rails 4.1.
+
+
 _Version 3.1.0_
 
 - Drop string `controller` from `page_class` and `javascript_initialization`.
