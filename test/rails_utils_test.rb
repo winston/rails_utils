@@ -114,15 +114,18 @@ describe "RailsUtils::ActionViewExtensions" do
       controller.flash[key] = message
     end
 
+    # TODO: Remove support for Bootstrap v2.3.2
+    # alert-danger is for Bootstrap 3
+    # alert-error  is for Bootstrap 2.3.2
     [
-      [ :success , /alert alert-success/, "flash is success" ],
-      [ :notice  , /alert alert-info/   , "flash is notice"  ],
-      [ "notice" , /alert alert-info/   , "flash is notice"  ],
-      [ :error   , /alert alert-error/  , "flash is error"   ],
-      [ :alert   , /alert alert-error/  , "flash is alert"   ],
-      [ "alert"  , /alert alert-error/  , "flash is alert"   ],
-      [ :custom  , /alert alert-custom/ , "flash is custom"  ],
-      [ "custom" , /alert alert-custom/ , "flash is custom"  ]
+      [ :success , /alert alert-success/            , "flash is success" ],
+      [ :notice  , /alert alert-info/               , "flash is notice"  ],
+      [ "notice" , /alert alert-info/               , "flash is notice"  ],
+      [ :error   , /alert alert-danger alert-error/ , "flash is error"   ],
+      [ :alert   , /alert alert-danger alert-error/ , "flash is alert"   ],
+      [ "alert"  , /alert alert-danger alert-error/ , "flash is alert"   ],
+      [ :custom  , /alert alert-custom/             , "flash is custom"  ],
+      [ "custom" , /alert alert-custom/             , "flash is custom"  ]
     ].each do |key, expected_class, expected_message|
       describe "when flash contains #{key} key" do
         before { set_flash key, expected_message }

@@ -50,9 +50,9 @@ module RailsUtils
         when :notice
           "alert alert-info"
         when :error
-          "alert alert-error"
+          "alert alert-danger alert-error"
         when :alert
-          "alert alert-error"
+          "alert alert-danger alert-error"
         else
           "alert alert-#{key}"
       end
