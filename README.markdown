@@ -95,6 +95,11 @@ Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
 ## Changelog
 
+_Version 3.1.2_
+
+- Add `alert-danger` class to flash error messages for Bootstrap 3 support.
+
+
 _Version 3.1.1_
 
 - [Pull Request 1](https://github.com/winston/rails_utils/pull/2) Support for Rails 4.1.
