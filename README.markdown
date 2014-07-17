@@ -40,6 +40,26 @@ so that you only need to write CSS to target `new` and `edit`, and not all four 
 For finer grained control, you can also choose the use the 2 methods that are used to build `page_class` individually.
 The two methods are `page_controller_class` and `page_action_class`.
 
+## #`page_title`
+
+This helper method returns page title based on controller name and action name.
+
+When controller and action is `anime#show`
+you can easily use `page_title` like
+
+    .page-title= page_title
+
+becomes
+
+    <div class='page-title'>Anime Show</div>
+
+Besides, it supports I18n too.
+  
+    en:
+      anime:
+        title:
+          show: An awesome title
+
 ## #`javascript_initialization`
 
 This helper method attempts to initialize JavaScript classes and methods based on a standard structure.
