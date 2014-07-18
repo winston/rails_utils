@@ -72,22 +72,28 @@ describe "RailsUtils::ActionViewExtensions" do
 
   describe "#page_title" do
     let(:controller_name) { "anime" }
-    let(:action_name)     { "custom" }
-    let(:default_translation) { "#{controller_name.capitalize} #{action_name.capitalize}" }
 
     before do
       view.stubs(:page_controller_class).returns(controller_name)
       view.stubs(:page_action_class).returns(action_name)
     end
 
-    it 'generates translation' do
-      I18n.expects(:t).with('.title', default: default_translation)
-      view.page_title
-    end
-
     describe 'when translation is missing' do
+      let(:action_name)     { "random" }
+      let(:default_translation) { "#{controller_name.capitalize} #{action_name.capitalize}" }
+
       it "combines page_controller_class and page_action_class" do
         view.page_title.must_equal default_translation
+      end
+    end
+
+    describe 'when translation is avaiable' do
+      let(:action_name) { 'show' }
+
+      before { I18n.backend.store_translations("en", {controller_name.to_sym => {action_name.to_sym => {title: "An awesome title"}}}) }
+
+      it 'translates page title' do 
+        view.page_title.must_equal 'An awesome title'
       end
     end
   end
