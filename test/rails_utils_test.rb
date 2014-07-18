@@ -81,7 +81,7 @@ describe "RailsUtils::ActionViewExtensions" do
     end
 
     it 'generates translation' do
-      I18n.expects(:t).with("#{controller_name}.title.#{action_name}", default: default_translation)
+      I18n.expects(:t).with('.title', default: default_translation)
       view.page_title
     end
 

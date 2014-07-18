@@ -57,8 +57,8 @@ Besides, it supports I18n too.
   
     en:
       anime:
-        title:
-          show: An awesome title
+        show: 
+          title: An awesome title
 
 ## #`javascript_initialization`
 
