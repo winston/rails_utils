@@ -15,6 +15,11 @@ module RailsUtils
       "#{page_controller_class} #{page_action_class}"
     end
 
+    def page_title
+      default_page_title = "#{page_controller_class.capitalize} #{page_action_class.capitalize}"
+      I18n.t("#{page_controller_class}.#{page_action_class}.title", default: default_page_title)
+    end
+
     def javascript_initialization
       application_name = Rails.application.class.parent_name
 
