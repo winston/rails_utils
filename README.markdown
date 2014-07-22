@@ -54,10 +54,10 @@ becomes
     <div class='page-title'>Anime Show</div>
 
 Besides, it supports I18n too.
-  
+
     en:
       anime:
-        show: 
+        show:
           title: An awesome title
 
 ## #`javascript_initialization`
@@ -115,6 +115,11 @@ Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
 ## Changelog
 
+_Version 3.2.0_
+
+- Add `page_title` that supports I18n - by @huynhquancam.
+
+
 _Version 3.1.2_
 
 - Add `alert-danger` class to flash error messages for Bootstrap 3 support.
@@ -143,4 +148,4 @@ Rails Utils is maintained by [Winston Teo](mailto:winstonyw+rails_utils@gmail.co
 
 ## License
 
-Copyright © 2013 Winston Teo Yong Wei. Free software, released under the MIT license.
+Copyright © 2014 Winston Teo Yong Wei. Free software, released under the MIT license.
