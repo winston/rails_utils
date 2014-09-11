@@ -53,12 +53,18 @@ becomes
 
     <div class='page-title'>Anime Show</div>
 
-Besides, it supports I18n too.
+Besides, it supports I18n and interpolation:
 
     en:
       anime:
         show:
-          title: An awesome title
+          title: Showing anime of: %{anime_name}
+
+    .page-title= page_title(anime_name: 'Frozen')
+
+becomes
+
+    <div class='page-title'>Showing anime of: Frozen</div>
 
 ## #`javascript_initialization`
 

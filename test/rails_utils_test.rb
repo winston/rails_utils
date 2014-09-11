@@ -92,8 +92,18 @@ describe "RailsUtils::ActionViewExtensions" do
 
       before { I18n.backend.store_translations("en", {controller_name.to_sym => {action_name.to_sym => {title: "An awesome title"}}}) }
 
-      it 'translates page title' do 
+      it 'translates page title' do
         view.page_title.must_equal 'An awesome title'
+      end
+    end
+
+    describe 'when translation is avaiable + interpolations' do
+      let(:action_name) { 'show' }
+
+      before { I18n.backend.store_translations("en", {controller_name.to_sym => {action_name.to_sym => {title: "An awesome title, %{name}"}}}) }
+
+      it 'translates page title' do
+        view.page_title(name: 'bro').must_equal 'An awesome title, bro'
       end
     end
   end
