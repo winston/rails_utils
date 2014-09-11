@@ -15,9 +15,10 @@ module RailsUtils
       "#{page_controller_class} #{page_action_class}"
     end
 
-    def page_title
+    def page_title(options={})
       default_page_title = "#{page_controller_class.capitalize} #{page_action_class.capitalize}"
-      I18n.t("#{page_controller_class}.#{page_action_class}.title", default: default_page_title)
+      i18n_options = { default: default_page_title }.reverse_merge!(options)
+      I18n.t("#{page_controller_class}.#{page_action_class}.title", i18n_options)
     end
 
     def javascript_initialization
