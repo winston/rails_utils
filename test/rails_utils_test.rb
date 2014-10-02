@@ -1,9 +1,9 @@
 require 'test_helper'
 
 describe "RailsUtils::ActionViewExtensions" do
-  let(:controller)  { ActionController::Base.new }
-  let(:request)     { ActionDispatch::Request.new(flash: {}) }
-  let(:view)        { ActionView::Base.new }
+  let(:controller) { ActionController::Base.new }
+  let(:request)    { ActionDispatch::Request.new(flash: {}) }
+  let(:view)       { ActionView::Base.new }
 
   before do
     controller.request = request
@@ -37,14 +37,14 @@ describe "RailsUtils::ActionViewExtensions" do
   describe "#page_action_class" do
     # action_name, expected
     [
-        [ "index"  , "index"   ],
-        [ "show"   , "show"    ],
-        [ "new"    , "new"     ],
-        [ "create" , "new"     ],
-        [ "edit"   , "edit"    ],
-        [ "update" , "edit"    ],
-        [ "destroy", "destroy" ],
-        [ "custom" , "custom"  ],
+      [ "index"  , "index"   ],
+      [ "show"   , "show"    ],
+      [ "new"    , "new"     ],
+      [ "create" , "new"     ],
+      [ "edit"   , "edit"    ],
+      [ "update" , "edit"    ],
+      [ "destroy", "destroy" ],
+      [ "custom" , "custom"  ],
     ].each do |action_name, expected|
       describe "when ##{action_name}" do
         before { controller.stubs(:action_name).returns(action_name) }
@@ -79,7 +79,7 @@ describe "RailsUtils::ActionViewExtensions" do
     end
 
     describe 'when translation is missing' do
-      let(:action_name)     { "random" }
+      let(:action_name)  { "random" }
       let(:default_translation) { "#{controller_name.capitalize} #{action_name.capitalize}" }
 
       it "combines page_controller_class and page_action_class" do
@@ -88,22 +88,22 @@ describe "RailsUtils::ActionViewExtensions" do
     end
 
     describe 'when translation is avaiable' do
-      let(:action_name) { 'show' }
+      let(:action_name) { "show" }
 
-      before { I18n.backend.store_translations("en", {controller_name.to_sym => {action_name.to_sym => {title: "An awesome title"}}}) }
+      before { I18n.backend.store_translations("en", { controller_name.to_sym => { action_name.to_sym => { title: "An awesome title" } }}) }
 
-      it 'translates page title' do
-        view.page_title.must_equal 'An awesome title'
+      it "translates page title" do
+        view.page_title.must_equal "An awesome title"
       end
     end
 
-    describe 'when translation is avaiable + interpolations' do
-      let(:action_name) { 'show' }
+    describe "when translation is avaiable + interpolations" do
+      let(:action_name) { "show" }
 
-      before { I18n.backend.store_translations("en", {controller_name.to_sym => {action_name.to_sym => {title: "An awesome title, %{name}"}}}) }
+      before { I18n.backend.store_translations("en", { controller_name.to_sym => { action_name.to_sym => { title: "An awesome title, %{name}" } }}) }
 
-      it 'translates page title' do
-        view.page_title(name: 'bro').must_equal 'An awesome title, bro'
+      it "translates page title" do
+        view.page_title(name: "bro").must_equal "An awesome title, bro"
       end
     end
   end
@@ -118,7 +118,7 @@ describe "RailsUtils::ActionViewExtensions" do
     end
 
     describe "when controller name and action name are standard" do
-      let(:action_name)     { "custom" }
+      let(:action_name) { "custom" }
 
       it "invokes application" do
         view.javascript_initialization.must_match "Dummy.init();"
@@ -131,7 +131,7 @@ describe "RailsUtils::ActionViewExtensions" do
     end
 
     describe "when action name is create" do
-      let(:action_name)     { "create" }
+      let(:action_name) { "create" }
 
       it "replaces create with new" do
         view.javascript_initialization.must_match "Dummy.#{controller_name}.init_new();"
@@ -139,7 +139,7 @@ describe "RailsUtils::ActionViewExtensions" do
     end
 
     describe "when action name is update" do
-      let(:action_name)     { "update" }
+      let(:action_name) { "update" }
 
       it "replaces update with create" do
         view.javascript_initialization.must_match "Dummy.#{controller_name}.init_edit();"
@@ -157,9 +157,11 @@ describe "RailsUtils::ActionViewExtensions" do
     # alert-error  is for Bootstrap 2.3.2
     [
       [ :success , /alert alert-success/            , "flash is success" ],
+      [ "success", /alert alert-success/            , "flash is success" ],
       [ :notice  , /alert alert-info/               , "flash is notice"  ],
       [ "notice" , /alert alert-info/               , "flash is notice"  ],
       [ :error   , /alert alert-danger alert-error/ , "flash is error"   ],
+      [ "error"  , /alert alert-danger alert-error/ , "flash is error"   ],
       [ :alert   , /alert alert-danger alert-error/ , "flash is alert"   ],
       [ "alert"  , /alert alert-danger alert-error/ , "flash is alert"   ],
       [ :custom  , /alert alert-custom/             , "flash is custom"  ],
@@ -180,12 +182,12 @@ describe "RailsUtils::ActionViewExtensions" do
 
     describe "when bootstrap is present" do
       it "can fade in and out" do
-        set_flash :alert  , "not important"
+        set_flash :alert, "not important"
         view.flash_messages.must_match /fade in/
       end
 
       it "can be dismissed" do
-        set_flash :alert  , "not important"
+        set_flash :alert, "not important"
         view.flash_messages.must_match /data-dismiss=.*alert/
       end
     end
