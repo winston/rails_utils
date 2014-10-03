@@ -33,24 +33,18 @@ module RailsUtils
       JS
     end
 
-    def flash_messages
-      html = ""
-      flash.each do |key, message|
-        html <<
-          content_tag(:div, class: "#{flash_class(key.to_sym)} fade in") do
-            content = ""
-            content << content_tag(:button, "x", type: "button", class: "close", "data-dismiss" => "alert")
-            content << message
-            content.html_safe
-          end
-      end
-      html.html_safe
+    def flash_messages(options = {})
+      flash.collect do |key, message|
+        next if message.blank?
+
+        content_tag(:div, content_tag(:button, "x", type: "button", class: "close", "data-dismiss" => "alert") + message, class: "#{flash_class(key)} fade in #{options[:class]}")
+      end.join("\n").html_safe
     end
 
     private
 
     def flash_class(key)
-      case key
+      case key.to_sym
         when :success
           "alert alert-success"
         when :notice
