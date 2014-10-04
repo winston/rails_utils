@@ -121,9 +121,15 @@ Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
 ## Changelog
 
+_Version 3.2.2_
+
+- [Pull Request 5](https://github.com/winston/rails_utils/pull/5) - Minor updates - by @JuanitoFatas.
+
+
 _Version 3.2.1_
 
 - Update `page_title` to support I18n interpolation - by @JuanitoFatas.
+
 
 _Version 3.2.0_
 
