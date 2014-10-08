@@ -56,7 +56,7 @@ becomes
 Besides, it supports I18n and interpolation:
 
     en:
-      anime:
+      animes:
         show:
           title: Showing anime of: %{anime_name}
 
