@@ -37,7 +37,7 @@ module RailsUtils
       flash.collect do |key, message|
         next if message.blank?
 
-        content_tag(:div, content_tag(:button, "x", type: "button", class: "close", "data-dismiss" => "alert") + message, class: "#{flash_class(key)} fade in #{options[:class]}")
+        content_tag(:div, content_tag(:button, options[:button_html] || "x", type: "button", class: options[:button_class] || "close", "data-dismiss" => "alert") + message, class: "#{flash_class(key)} fade in #{options[:class]}")
       end.join("\n").html_safe
     end
 
