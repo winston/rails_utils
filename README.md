@@ -15,21 +15,21 @@ Rails helpers based on opinionated project practices. Currently useful for struc
 This helper method returns controller name and action name as a single string value,
 which can be used to target CSS styles specifically for this controller or action.
 
-For example, when controller and action is `anime#show`,
+For example, when controller and action is `animes#show`,
 you can use `page_class` to include the controller name and action name as CSS classes on the page.
 
     %body{ class: page_class }
 
 becomes
 
-    <body class='anime show'>
+    <body class='animes show'>
 
 Then in your CSS, you can either target your styles specific to controller and/or action.
 
-    body.anime
+    body.animes
       background: black
 
-    body.anime.show
+    body.animes.show
       font-size: 24px
 
 Usually, when the `create` or `update` actions render, the `new` or `edit` views will be rendered due to a form error.
@@ -44,14 +44,14 @@ The two methods are `page_controller_class` and `page_action_class`.
 
 This helper method returns page title based on controller name and action name.
 
-When controller and action is `anime#show`
+When controller and action is `animes#show`
 you can easily use `page_title` like
 
     .page-title= page_title
 
 becomes
 
-    <div class='page-title'>Anime Show</div>
+    <div class='page-title'>Animes Show</div>
 
 Besides, it supports I18n and interpolation:
 
@@ -76,14 +76,14 @@ Add `javascript_initialization` to the bottom of your layout.
 
     = javascript_initialization
 
-When application is MyApp, and controller/action is `anime#show`, `javascript_initialization` compiles to:
+When application is MyApp, and controller/action is `animes#show`, `javascript_initialization` compiles to:
 
     <script type="text/javascript">
     //<![CDATA[
             MyApp.init();
-            if(MyApp.anime) {
-              if(MyApp.anime.init) { MyApp.anime.init(); }
-              if(MyApp.anime.init_show) { MyApp.anime.init_show(); }
+            if(MyApp.animes) {
+              if(MyApp.animes.init) { MyApp.animes.init(); }
+              if(MyApp.animes.init_show) { MyApp.animes.init_show(); }
             }
     //]]>
     </script>
@@ -112,6 +112,10 @@ Suppose there's a `flash[:success]`, you should see:
       <p>flash is success</p>
     </div>
 
+You can also:
+
+- Add additional CSS classes to the alert with the `class` option.
+- Customize the close button with `button_html` and `button_class` options.
 
 ## Contributing
 
@@ -120,6 +124,12 @@ Pull Requests are very welcomed (with specs, of course)!
 Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
 ## Changelog
+
+_Version 3.3.0_
+
+- [Pull Request 8](https://github.com/winston/rails_utils/pull/8) - Add `button_html` and `button_class` options for `flash_messages` - by @choonkeat.
+- [Pull Request 9](https://github.com/winston/rails_utils/pull/9) - Remove `timedout` from `flash` that's specific to `Devise`.
+
 
 _Version 3.2.2_
 
