@@ -191,5 +191,20 @@ describe "RailsUtils::ActionViewExtensions" do
         view.flash_messages.must_match /data-dismiss=.*alert/
       end
     end
+
+    describe "options" do
+      it "can allow override of button content (default 'x')" do
+        set_flash :alert, "not important"
+        view.flash_messages.must_match %r{>x</button>}
+        view.flash_messages(button_html: '').must_match %r{button class="close"}
+      end
+
+      it "can allow override of button css class (default 'close')" do
+        set_flash :alert, "not important"
+        view.flash_messages.must_match %r{>x</button>}
+        view.flash_messages(button_class: 'abc def').must_match %r{button class="abc def"}
+      end
+    end
+
   end
 end
