@@ -206,5 +206,10 @@ describe "RailsUtils::ActionViewExtensions" do
       end
     end
 
+    it "should skip flash[:timedout]" do
+      set_flash :timedout, "not important"
+      view.flash_messages.must_equal ""
+    end
+
   end
 end

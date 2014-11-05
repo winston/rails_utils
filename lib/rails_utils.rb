@@ -36,6 +36,7 @@ module RailsUtils
     def flash_messages(options = {})
       flash.collect do |key, message|
         next if message.blank?
+        next if key.to_s == 'timedout'
 
         content_tag(:div, content_tag(:button, options[:button_html] || "x", type: "button", class: options[:button_class] || "close", "data-dismiss" => "alert") + message, class: "#{flash_class(key)} fade in #{options[:class]}")
       end.join("\n").html_safe
