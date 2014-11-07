@@ -125,6 +125,10 @@ Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
 ## Changelog
 
+_Version 3.3.1_
+
+- [Pull Request 10](https://github.com/winston/rails_utils/pull/10) - Allow overiding of `default` for `page_title` - by @choonkeat.
+
 _Version 3.3.0_
 
 - [Pull Request 8](https://github.com/winston/rails_utils/pull/8) - Add `button_html` and `button_class` options for `flash_messages` - by @choonkeat.
