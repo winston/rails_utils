@@ -87,7 +87,7 @@ describe "RailsUtils::ActionViewExtensions" do
       end
     end
 
-    describe 'when translation is avaiable' do
+    describe 'when translation is available' do
       let(:action_name) { "show" }
 
       before { I18n.backend.store_translations("en", { controller_name.to_sym => { action_name.to_sym => { title: "An awesome title" } }}) }
@@ -97,7 +97,7 @@ describe "RailsUtils::ActionViewExtensions" do
       end
     end
 
-    describe "when translation is avaiable + interpolations" do
+    describe "when translation is available + interpolations" do
       let(:action_name) { "show" }
 
       before { I18n.backend.store_translations("en", { controller_name.to_sym => { action_name.to_sym => { title: "An awesome title, %{name}" } }}) }
