@@ -85,6 +85,10 @@ describe "RailsUtils::ActionViewExtensions" do
       it "combines page_controller_class and page_action_class" do
         view.page_title.must_equal default_translation
       end
+
+      it "uses :default provided by gem user" do
+        view.page_title(default: 'my custom default').must_equal 'my custom default'
+      end
     end
 
     describe 'when translation is available' do
