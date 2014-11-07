@@ -17,7 +17,7 @@ module RailsUtils
 
     def page_title(options={})
       default_page_title = "#{page_controller_class.capitalize} #{page_action_class.capitalize}"
-      i18n_options = { default: default_page_title }.reverse_merge!(options)
+      i18n_options = { default: default_page_title }.merge!(options)
       I18n.t("#{page_controller_class}.#{page_action_class}.title", i18n_options)
     end
 
