@@ -1,4 +1,5 @@
 require 'action_view'
+require 'at_least_one_validator'
 
 module RailsUtils
   module ActionViewExtensions
