@@ -3,12 +3,17 @@ require 'action_view'
 module RailsUtils
   module ActionViewExtensions
     def page_controller_class
-      controller.class.to_s.sub(/Controller$/, "").underscore.sub(/\//, "_")
+      cssize(controller.class.to_s.sub(/Controller$/, ""))
     end
 
     def page_action_class
       class_mappings = { "create" => "new", "update" => "edit" }
-      class_mappings[controller.action_name] || controller.action_name
+      result = class_mappings.fetch(controller.action_name, nil)
+      if defined?(HighVoltage) && controller.is_a?(HighVoltage::PagesController)
+        result ||= controller.current_page
+      end
+      result ||= controller.action_name
+      cssize(result)
     end
 
     def page_class
@@ -43,6 +48,10 @@ module RailsUtils
     end
 
     private
+
+    def cssize(identifier)
+      identifier.underscore.sub(/\//, "_")
+    end
 
     def flash_class(key)
       case key.to_sym

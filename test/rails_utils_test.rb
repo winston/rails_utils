@@ -54,6 +54,20 @@ describe "RailsUtils::ActionViewExtensions" do
         end
       end
     end
+
+    describe "when using High Voltage" do
+      # Local override for testing HighVoltage compatibility
+      let(:controller) { HighVoltage::PagesController.new }
+      before do
+        controller.request = request
+      end
+
+      describe "when #show" do
+        it "returns the page name" do
+          view.page_action_class.must_equal "pages_test"
+        end
+      end
+    end
   end
 
   describe "#page_class" do
