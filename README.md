@@ -123,7 +123,7 @@ Override any of these defaults in `config/initializers/rails_utils.rb`
 
 ```ruby
 RailsUtils.configure do |config|
-  config.selector_format = :underscored # or hyphenated
+  config.selector_format = :underscored # or :hyphenated
 end
 ```
 
