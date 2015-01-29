@@ -1,8 +1,24 @@
+require 'rails_utils/configuration'
 require 'action_view'
 
 module RailsUtils
   module ActionViewExtensions
     def page_controller_class
+      case RailsUtils.configuration.selector_format
+      when :underscored
+        page_controller_class_underscored
+      when :hyphenated
+        page_controller_class_hyphenated
+      else
+        page_controller_class_underscored
+      end
+    end
+
+    def page_controller_class_hyphenated
+      page_controller_class_underscored.dasherize
+    end
+
+    def page_controller_class_underscored
       controller.class.to_s.sub(/Controller$/, "").underscore.sub(/\//, "_")
     end
 
@@ -26,9 +42,9 @@ module RailsUtils
 
       javascript_tag <<-JS
         #{application_name}.init();
-        if(#{application_name}.#{page_controller_class}) {
-          if(#{application_name}.#{page_controller_class}.init) { #{application_name}.#{page_controller_class}.init(); }
-          if(#{application_name}.#{page_controller_class}.init_#{page_action_class}) { #{application_name}.#{page_controller_class}.init_#{page_action_class}(); }
+        if(#{application_name}.#{page_controller_class_underscored}) {
+          if(#{application_name}.#{page_controller_class_underscored}.init) { #{application_name}.#{page_controller_class_underscored}.init(); }
+          if(#{application_name}.#{page_controller_class_underscored}.init_#{page_action_class}) { #{application_name}.#{page_controller_class_underscored}.init_#{page_action_class}(); }
         }
       JS
     end
