@@ -32,6 +32,23 @@ describe "RailsUtils::ActionViewExtensions" do
         view.page_controller_class.must_equal controller_name
       end
     end
+
+    describe "simple controller with hyphenated selector format" do
+      let(:controller_class) { "Awesome::AnimeController" }
+      let(:controller_name)  { "awesome-anime" }
+
+      before do
+        RailsUtils.configure do |config|
+          config.selector_format = :hyphenated
+        end
+
+        controller.stubs(:class).returns(controller_class)
+      end
+
+      it "returns controller name" do
+        view.page_controller_class.must_equal controller_name
+      end
+    end
   end
 
   describe "#page_action_class" do

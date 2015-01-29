@@ -117,6 +117,16 @@ You can also:
 - Add additional CSS classes to the alert with the `class` option.
 - Customize the close button with `button_html` and `button_class` options.
 
+## Configuration
+
+Override any of these defaults in `config/initializers/rails_utils.rb`
+
+```ruby
+RailsUtils.configure do |config|
+  config.selector_format = :underscored # or :hyphenated
+end
+```
+
 ## Contributing
 
 Pull Requests are very welcomed (with specs, of course)!
