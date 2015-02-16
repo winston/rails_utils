@@ -21,14 +21,15 @@ module RailsUtils
       I18n.t("#{page_controller_class}.#{page_action_class}.title", i18n_options)
     end
 
-    def javascript_initialization
+    def javascript_initialization(options = {})
       application_name = Rails.application.class.parent_name
-
+      page_controller_name = page_controller_class
+      page_action_name = options[:custom_action] || page_action_class
       javascript_tag <<-JS
         #{application_name}.init();
-        if(#{application_name}.#{page_controller_class}) {
-          if(#{application_name}.#{page_controller_class}.init) { #{application_name}.#{page_controller_class}.init(); }
-          if(#{application_name}.#{page_controller_class}.init_#{page_action_class}) { #{application_name}.#{page_controller_class}.init_#{page_action_class}(); }
+        if(#{application_name}.#{page_controller_name}) {
+          if(#{application_name}.#{page_controller_name}.init) { #{application_name}.#{page_controller_name}.init(); }
+          if(#{application_name}.#{page_controller_name}.init_#{page_action_name}) { #{application_name}.#{page_controller_name}.init_#{page_action_name}(); }
         }
       JS
     end

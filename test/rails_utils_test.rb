@@ -149,6 +149,14 @@ describe "RailsUtils::ActionViewExtensions" do
         view.javascript_initialization.must_match "Dummy.#{controller_name}.init_edit();"
       end
     end
+
+    describe "with a custom action as an argument" do
+    	let(:action_name) {"update"} 
+
+    	it "uses the custom action name" do
+    		view.javascript_initialization(custom_action: 'custom').must_match "Dummy.#{controller_name}.init_custom();"
+    	end
+    end
   end
 
   describe "#flash_messages" do
