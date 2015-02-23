@@ -4,22 +4,12 @@ require 'action_view'
 module RailsUtils
   module ActionViewExtensions
     def page_controller_class
-      case RailsUtils.configuration.selector_format
-      when :underscored
-        page_controller_class_underscored
+      case RailsUtils.configuration.selector_format.to_sym
       when :hyphenated
         page_controller_class_hyphenated
-      else
+      else # :underscored
         page_controller_class_underscored
       end
-    end
-
-    def page_controller_class_hyphenated
-      page_controller_class_underscored.dasherize
-    end
-
-    def page_controller_class_underscored
-      controller.class.to_s.sub(/Controller$/, "").underscore.sub(/\//, "_")
     end
 
     def page_action_class
@@ -38,13 +28,15 @@ module RailsUtils
     end
 
     def javascript_initialization
-      application_name = Rails.application.class.parent_name
+      application_name  = Rails.application.class.parent_name
+      js_namespace_name = page_controller_class_underscored
+      js_function_name  = page_action_class
 
       javascript_tag <<-JS
         #{application_name}.init();
-        if(#{application_name}.#{page_controller_class_underscored}) {
-          if(#{application_name}.#{page_controller_class_underscored}.init) { #{application_name}.#{page_controller_class_underscored}.init(); }
-          if(#{application_name}.#{page_controller_class_underscored}.init_#{page_action_class}) { #{application_name}.#{page_controller_class_underscored}.init_#{page_action_class}(); }
+        if(#{application_name}.#{js_namespace_name}) {
+          if(#{application_name}.#{js_namespace_name}.init) { #{application_name}.#{js_namespace_name}.init(); }
+          if(#{application_name}.#{js_namespace_name}.init_#{js_function_name}) { #{application_name}.#{js_namespace_name}.init_#{js_function_name}(); }
         }
       JS
     end
@@ -60,20 +52,28 @@ module RailsUtils
 
     private
 
-    def flash_class(key)
-      case key.to_sym
-        when :success
-          "alert alert-success"
-        when :notice
-          "alert alert-info"
-        when :error
-          "alert alert-danger alert-error"
-        when :alert
-          "alert alert-danger alert-error"
-        else
-          "alert alert-#{key}"
+      def flash_class(key)
+        case key.to_sym
+          when :success
+            "alert alert-success"
+          when :notice
+            "alert alert-info"
+          when :error
+            "alert alert-danger alert-error"
+          when :alert
+            "alert alert-danger alert-error"
+          else
+            "alert alert-#{key}"
+        end
       end
-    end
+
+      def page_controller_class_hyphenated
+        page_controller_class_underscored.dasherize
+      end
+
+      def page_controller_class_underscored
+        controller.class.to_s.sub(/Controller$/, "").underscore.sub(/\//, "_")
+      end
   end
 end
 

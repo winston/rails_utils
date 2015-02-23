@@ -49,6 +49,23 @@ describe "RailsUtils::ActionViewExtensions" do
         view.page_controller_class.must_equal controller_name
       end
     end
+
+    describe "simple controller with specified selector format in string" do
+      let(:controller_class) { "Awesome::AnimeController" }
+      let(:controller_name)  { "awesome_anime" }
+
+      before do
+        RailsUtils.configure do |config|
+          config.selector_format = "underscored"
+        end
+
+        controller.stubs(:class).returns(controller_class)
+      end
+
+      it "returns controller name" do
+        view.page_controller_class.must_equal controller_name
+      end
+    end
   end
 
   describe "#page_action_class" do
@@ -231,6 +248,5 @@ describe "RailsUtils::ActionViewExtensions" do
       set_flash :timedout, "not important"
       view.flash_messages.must_equal ""
     end
-
   end
 end
