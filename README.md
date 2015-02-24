@@ -4,7 +4,6 @@
 
 Rails helpers based on opinionated project practices. Currently useful for structuring CSS and JS.
 
-
 ## Installation
 
     gem install 'rails_utils'
@@ -133,58 +132,11 @@ Pull Requests are very welcomed (with specs, of course)!
 
 Minitest-ed. To run all tests, just run `rake` or `rake test`.
 
-## Changelog
-
-_Version 3.3.1_
-
-- [Pull Request 10](https://github.com/winston/rails_utils/pull/10) - Allow overiding of `default` for `page_title` - by @choonkeat.
-
-_Version 3.3.0_
-
-- [Pull Request 8](https://github.com/winston/rails_utils/pull/8) - Add `button_html` and `button_class` options for `flash_messages` - by @choonkeat.
-- [Pull Request 9](https://github.com/winston/rails_utils/pull/9) - Remove `timedout` from `flash` that's specific to `Devise`.
-
-
-_Version 3.2.2_
-
-- [Pull Request 5](https://github.com/winston/rails_utils/pull/5) - Minor updates - by @JuanitoFatas.
-
-
-_Version 3.2.1_
-
-- Update `page_title` to support I18n interpolation - by @JuanitoFatas.
-
-
-_Version 3.2.0_
-
-- Add `page_title` that supports I18n - by @huynhquancam.
-
-
-_Version 3.1.2_
-
-- Add `alert-danger` class to flash error messages for Bootstrap 3 support.
-
-
-_Version 3.1.1_
-
-- [Pull Request 1](https://github.com/winston/rails_utils/pull/2) Support for Rails 4.1.
-
-
-_Version 3.1.0_
-
-- Drop string `controller` from `page_class` and `javascript_initialization`.
-
-
-_Version 3.0.0_
-
-- Controller namespace added to `page_class` and `javascript_initialization`.
-
 ## Author
 
 Rails Utils is maintained by [Winston Teo](mailto:winstonyw+rails_utils@gmail.com).
 
-[You should follow Winston on Twitter](http://www.twitter.com/winstonyw), or find out more on [WinstonYW](http://www.winstonyw.com) and [LinkedIn](http://sg.linkedin.com/in/winstonyw).
-
+[You should follow Winston on Twitter](https://www.twitter.com/winstonyw), or find out more on [WinstonYW](http://www.winstonyw.com) and [LinkedIn](http://sg.linkedin.com/in/winstonyw).
 
 ## License
 
