@@ -32,6 +32,40 @@ describe "RailsUtils::ActionViewExtensions" do
         view.page_controller_class.must_equal controller_name
       end
     end
+
+    describe "simple controller with hyphenated selector format" do
+      let(:controller_class) { "Awesome::AnimeController" }
+      let(:controller_name)  { "awesome-anime" }
+
+      before do
+        RailsUtils.configure do |config|
+          config.selector_format = :hyphenated
+        end
+
+        controller.stubs(:class).returns(controller_class)
+      end
+
+      it "returns controller name" do
+        view.page_controller_class.must_equal controller_name
+      end
+    end
+
+    describe "simple controller with specified selector format in string" do
+      let(:controller_class) { "Awesome::AnimeController" }
+      let(:controller_name)  { "awesome_anime" }
+
+      before do
+        RailsUtils.configure do |config|
+          config.selector_format = "underscored"
+        end
+
+        controller.stubs(:class).returns(controller_class)
+      end
+
+      it "returns controller name" do
+        view.page_controller_class.must_equal controller_name
+      end
+    end
   end
 
   describe "#page_action_class" do
@@ -150,11 +184,19 @@ describe "RailsUtils::ActionViewExtensions" do
       end
     end
 
-    describe "with a custom action as an argument" do
+    describe "with a custom js init method as an argument" do
     	let(:action_name) {"update"} 
 
-    	it "uses the custom action name" do
-    		view.javascript_initialization(custom_action: 'custom').must_match "Dummy.#{controller_name}.init_custom();"
+    	it "uses the custom js init method" do
+    		view.javascript_initialization(js_init_method: 'custom').must_match "Dummy.#{controller_name}.init_custom();"
+    	end
+    end
+
+    describe 'without a custom js init method as an argument' do
+    	let(:action_name) {"update"}
+    	
+    	it "does not generate an additional javascript method" do
+  			view.javascript_initialization.wont_match "Dummy.#{controller_name}.init_();"
     	end
     end
   end
@@ -222,6 +264,5 @@ describe "RailsUtils::ActionViewExtensions" do
       set_flash :timedout, "not important"
       view.flash_messages.must_equal ""
     end
-
   end
 end

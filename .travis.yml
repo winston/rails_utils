@@ -1,11 +1,14 @@
+sudo: false
+cache: bundler
 language: ruby
 rvm:
   - 1.9.3
   - 2.0.0
   - 2.1
   - 2.2
-
 branches:
   only:
-    - master
-
+  - master
+notifications:
+  slack:
+    secure: nGQv46FQ3FlYh9wKnshCucxN4MqQVPwflNunrICiHqfo0+6lHPijZY783BILolnKJuFIXccgjZrQ/tQjKBwaLEXEHMWWIUgq0xuO7GpQiamgdrar7Ohdv5nbVl5el/YJk2ok1tPEmIHGtgLqDPvGEDbDiR2x0N5gy6Po836NzOY=
