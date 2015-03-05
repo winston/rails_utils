@@ -33,9 +33,11 @@ module RailsUtils
       js_function_name  = page_action_class
       js_custom_name = options[:js_init_method]
 
-      custom_js_init_method = options[:js_init_method] ? 
-      	"if(#{application_name}.#{js_namespace_name}.init_#{js_custom_name}) { #{application_name}.#{js_namespace_name}.init_#{js_custom_name}(); }"
-      	: ''
+      custom_js_init_method = ""
+      
+      if options[:js_init_method] 
+        custom_js_init_method = "if(#{application_name}.#{js_namespace_name}.init_#{js_custom_name}) { #{application_name}.#{js_namespace_name}.init_#{js_custom_name}(); }"
+      end
 
       javascript_tag <<-JS
         #{application_name}.init();
