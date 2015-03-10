@@ -184,17 +184,18 @@ describe "RailsUtils::ActionViewExtensions" do
       end
     end
 
-    describe "with a custom js init method as an argument" do
-      let(:action_name) {"update"} 
+    describe "with a content_for custom js_init_method as an argument" do
+      let(:action_name) { "update" }
 
       it "uses the custom js init method" do
-        view.javascript_initialization(js_init_method: 'custom').must_match "Dummy.#{controller_name}.init_custom();"
+        view.content_for(:js_init_method) { "custom" }
+        view.javascript_initialization.must_match "Dummy.#{controller_name}.init_custom();"
       end
     end
 
-    describe 'without a custom js init method as an argument' do
-      let(:action_name) {"update"}
-      
+    describe "without a content_for custom js_init_method as an argument" do
+      let(:action_name) { "update" }
+
       it "does not generate an additional javascript method" do
         view.javascript_initialization.wont_match "Dummy.#{controller_name}.init_();"
       end
