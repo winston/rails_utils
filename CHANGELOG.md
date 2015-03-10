@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+- [Pull Request 15](https://github.com/winston/rails_utils/pull/15) - Updated javascript_initialization to take in options to define custom action name - by @yzdong.
+
 - [Pull Request 13](https://github.com/winston/rails_utils/pull/13) - Add config to choose between underscored or hyphenated class names - by @jsyeo.
 
 ### Version 3.3.1
