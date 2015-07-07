@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+- [Pull Request 21](https://github.com/winston/rails_utils/pull/21) - Fix page controller class bug for nested-level controllers - by @allenwq.
+
 ### Version 3.3.2
 
 - [Pull Request 15](https://github.com/winston/rails_utils/pull/15) - Updated javascript_initialization to take in options to define custom action name - by @yzdong.
