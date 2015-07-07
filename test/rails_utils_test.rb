@@ -22,7 +22,7 @@ describe "RailsUtils::ActionViewExtensions" do
       end
     end
 
-    describe "simple controller" do
+    describe "nested controller returns underscored name by default" do
       let(:controller_class) { "Super::Awesome::AnimeController" }
       let(:controller_name)  { "super_awesome_anime" }
 
@@ -33,9 +33,9 @@ describe "RailsUtils::ActionViewExtensions" do
       end
     end
 
-    describe "simple controller with hyphenated selector format" do
-      let(:controller_class) { "Awesome::AnimeController" }
-      let(:controller_name)  { "awesome-anime" }
+    describe "nested controller with selector format returns hyphenated name" do
+      let(:controller_class) { "Super::Awesome::AnimeController" }
+      let(:controller_name)  { "super-awesome-anime" }
 
       before do
         RailsUtils.configure do |config|
@@ -50,9 +50,9 @@ describe "RailsUtils::ActionViewExtensions" do
       end
     end
 
-    describe "simple controller with specified selector format in string" do
-      let(:controller_class) { "Awesome::AnimeController" }
-      let(:controller_name)  { "awesome_anime" }
+    describe "nested controller with selector format of string returns name in specified format" do
+      let(:controller_class) { "Super::Awesome::AnimeController" }
+      let(:controller_name)  { "super_awesome_anime" }
 
       before do
         RailsUtils.configure do |config|
