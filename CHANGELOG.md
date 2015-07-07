@@ -2,7 +2,11 @@
 
 ### Unreleased
 
+### Version 3.3.3
+
 - [Pull Request 21](https://github.com/winston/rails_utils/pull/21) - Fix page controller class bug for nested-level controllers - by @allenwq.
+
+[Full Changelog](https://github.com/winston/rails_utils/compare/v3.3.2...v3.3.3)
 
 ### Version 3.3.2
 
