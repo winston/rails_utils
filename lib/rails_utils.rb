@@ -78,7 +78,7 @@ module RailsUtils
       end
 
       def page_controller_class_underscored
-        controller.class.to_s.sub(/Controller$/, "").underscore.sub(/\//, "_")
+        controller.class.to_s.sub(/Controller$/, "").underscore.gsub(/\//, "_")
       end
   end
 end

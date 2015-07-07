@@ -23,8 +23,8 @@ describe "RailsUtils::ActionViewExtensions" do
     end
 
     describe "simple controller" do
-      let(:controller_class) { "Awesome::AnimeController" }
-      let(:controller_name)  { "awesome_anime" }
+      let(:controller_class) { "Super::Awesome::AnimeController" }
+      let(:controller_name)  { "super_awesome_anime" }
 
       before { controller.stubs(:class).returns(controller_class) }
 
