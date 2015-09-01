@@ -2,7 +2,11 @@
 
 ### Unreleased
 
+### Version 3.3.4
+
 - [Pull Request 23](https://github.com/winston/rails_utils/pull/23) - Fix #flash_messages not properly apply `html_safe`ed.
+
+[Full Changelog](https://github.com/winston/rails_utils/compare/v3.3.3...v3.3.4)
 
 ### Version 3.3.3
 
