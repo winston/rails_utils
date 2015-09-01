@@ -1,6 +1,7 @@
 # Rails Utils
 
-[![Build Status](https://travis-ci.org/winston/rails_utils.png?branch=master)](https://travis-ci.org/winston/rails_utils)
+[![Gem Version](https://badge.fury.io/rb/rails_utils.svg)](http://badge.fury.io/rb/rails_utils)
+[![Build Status](https://travis-ci.org/winston/rails_utils.svg)](https://travis-ci.org/winston/rails_utils)
 
 Rails helpers based on opinionated project practices. Currently useful for structuring CSS and JS.
 
