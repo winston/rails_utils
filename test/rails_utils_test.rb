@@ -265,5 +265,23 @@ describe "RailsUtils::ActionViewExtensions" do
       set_flash :timedout, "not important"
       view.flash_messages.must_equal ""
     end
+
+    it "should be `html_safe`ed" do
+      set_flash :alert, "not important"
+
+      view.flash_messages.html_safe?.must_equal true
+    end
+
+    it "each message of flash should call html_safe" do
+      set_flash :alert, Minitest::Mock.new
+
+      messages = view.flash.instance_variable_get(:@flashes).values.each do |message|
+        message.expect :blank?, false
+        message.expect :html_safe, "test"
+        message.expect :html_safe?, true
+      end
+
+      view.flash_messages.must_equal "<div class=\"alert alert-danger alert-error fade in \"><button class=\"close\" data-dismiss=\"alert\" type=\"button\">x</button>test</div>"
+    end
   end
 end
