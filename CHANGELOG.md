@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+- [Pull Request 23](https://github.com/winston/rails_utils/pull/23) - Fix #flash_messages not properly apply `html_safe`ed.
+
 ### Version 3.3.3
 
 - [Pull Request 21](https://github.com/winston/rails_utils/pull/21) - Fix page controller class bug for nested-level controllers - by @allenwq.
