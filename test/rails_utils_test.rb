@@ -123,6 +123,11 @@ describe "RailsUtils::ActionViewExtensions" do
       it "uses :default provided by gem user" do
         view.page_title(default: 'my custom default').must_equal 'my custom default'
       end
+
+      it "calling multiple times reuses first result (template renders before layout)" do
+        view.page_title(default: 'my custom default').must_equal 'my custom default'
+        view.page_title.must_equal 'my custom default'
+      end
     end
 
     describe 'when translation is available' do
