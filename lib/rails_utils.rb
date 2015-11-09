@@ -22,9 +22,11 @@ module RailsUtils
     end
 
     def page_title(options={})
-      default_page_title = "#{page_controller_class.capitalize} #{page_action_class.capitalize}"
-      i18n_options = { default: default_page_title }.merge!(options)
-      I18n.t("#{page_controller_class}.#{page_action_class}.title", i18n_options)
+      @page_title ||= begin
+        default_page_title = "#{page_controller_class.capitalize} #{page_action_class.capitalize}"
+        i18n_options = { default: default_page_title }.merge!(options)
+        I18n.t("#{page_controller_class}.#{page_action_class}.title", i18n_options)
+      end
     end
 
     def javascript_initialization(options = {})
