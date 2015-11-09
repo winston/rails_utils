@@ -2,7 +2,11 @@
 
 ### Unreleased
 
+### Version 3.3.5
+
 - [Pull Request 25](https://github.com/winston/rails_utils/pull/25) - Cache `page_title` result - by @choonkeat.
+
+[Full Changelog](https://github.com/winston/rails_utils/compare/v3.3.4...v3.3.5)
 
 ### Version 3.3.4
 
