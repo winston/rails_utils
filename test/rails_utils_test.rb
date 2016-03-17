@@ -169,7 +169,7 @@ describe "RailsUtils::ActionViewExtensions" do
 
       it "invokes controller and action javascript" do
         view.javascript_initialization.must_match "Dummy.#{controller_name}.init();"
-        view.javascript_initialization.must_match "Dummy.#{controller_name}.init_#{action_name}();"
+        view.javascript_initialization.must_match "Dummy.#{controller_name}.#{action_name}.init();"
       end
     end
 
@@ -177,7 +177,7 @@ describe "RailsUtils::ActionViewExtensions" do
       let(:action_name) { "create" }
 
       it "replaces create with new" do
-        view.javascript_initialization.must_match "Dummy.#{controller_name}.init_new();"
+        view.javascript_initialization.must_match "Dummy.#{controller_name}.new.init();"
       end
     end
 
@@ -185,7 +185,7 @@ describe "RailsUtils::ActionViewExtensions" do
       let(:action_name) { "update" }
 
       it "replaces update with create" do
-        view.javascript_initialization.must_match "Dummy.#{controller_name}.init_edit();"
+        view.javascript_initialization.must_match "Dummy.#{controller_name}.edit.init();"
       end
     end
 
@@ -194,7 +194,7 @@ describe "RailsUtils::ActionViewExtensions" do
 
       it "uses the custom js init method" do
         view.content_for(:js_init_method) { "custom" }
-        view.javascript_initialization.must_match "Dummy.#{controller_name}.init_custom();"
+        view.javascript_initialization.must_match "Dummy.#{controller_name}.custom.init();"
       end
     end
 
@@ -202,7 +202,7 @@ describe "RailsUtils::ActionViewExtensions" do
       let(:action_name) { "update" }
 
       it "does not generate an additional javascript method" do
-        view.javascript_initialization.wont_match "Dummy.#{controller_name}.init_();"
+        view.javascript_initialization.wont_match "Dummy.#{controller_name}..init();"
       end
     end
   end
