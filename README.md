@@ -83,7 +83,7 @@ When application is MyApp, and controller/action is `animes#show`, `javascript_i
             MyApp.init();
             if(MyApp.animes) {
               if(MyApp.animes.init) { MyApp.animes.init(); }
-              if(MyApp.animes.init_show) { MyApp.animes.init_show(); }
+              if(MyApp.animes.show && MyApp.animes.show.init) { MyApp.animes.show.init(); }
             }
     //]]>
     </script>
