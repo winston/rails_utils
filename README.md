@@ -198,7 +198,7 @@ Rails Utils is maintained by [Winston Teo](mailto:winstonyw+rails_utils@gmail.co
 
 ## License
 
-Copyright © 2014 Winston Teo Yong Wei. Free software, released under the MIT license.
+Copyright © 2013-2016 Winston Teo Yong Wei. Free software, released under the MIT license.
 
 
 [version-badge]: https://badge.fury.io/rb/rails_utils.svg
