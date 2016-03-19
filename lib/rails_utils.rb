@@ -1,5 +1,7 @@
-require 'rails_utils/configuration'
-require 'action_view'
+# frozen_string_literal: true
+
+require "rails_utils/configuration"
+require "action_view"
 
 module RailsUtils
   module ActionViewExtensions
@@ -52,7 +54,7 @@ module RailsUtils
     def flash_messages(options = {})
       flash.collect do |key, message|
         next if message.blank?
-        next if key.to_s == 'timedout'
+        next if key.to_s == "timedout"
 
         content_tag(:div, content_tag(:button, options[:button_html] || "x", type: "button", class: options[:button_class] || "close", "data-dismiss" => "alert") + message.html_safe, class: "#{flash_class(key)} fade in #{options[:class]}")
       end.join("\n").html_safe
