@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+- [Pull Request 26](https://github.com/winston/rails_utils/pull/26) - Scope JavaScript methods under controller name and action - by @sohymg.
+
 ### Version 3.3.5
 
 - [Pull Request 25](https://github.com/winston/rails_utils/pull/25) - Cache `page_title` result - by @choonkeat.
