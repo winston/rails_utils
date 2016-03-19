@@ -111,6 +111,10 @@ becomes
 
 ### #`javascript_initialization`
 
+**You're brwosing rails_utils v4.x, v4.x changes how JavaScript methods are scoped.**.
+
+If you're using v3.x, [view latested released v3.x (3.3.6) docs instead](https://github.com/winston/rails_utils/tree/v3.3.6#javascript_initialization).
+
 This helper method attempts to initialize JavaScript classes and methods based on a standard structure.
 
 With this standard structure, calling your JavaScript has never been easier.
