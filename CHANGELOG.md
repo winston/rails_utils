@@ -2,6 +2,10 @@
 
 ### Unreleased
 
+- [Pull Request 28](https://github.com/winston/rails_utils/pull/28) - [Development] remove `.ruby-version` file - by @JuanitoFatas
+
+- [Pull Request 27](https://github.com/winston/rails_utils/pull/27) - Add Ruby 2.3 Frozen string literal pragma - by @JuanitoFatas
+
 - [Pull Request 26](https://github.com/winston/rails_utils/pull/26) - Scope JavaScript methods under controller name and action - by @sohymg.
 
 ### Version 3.3.5
