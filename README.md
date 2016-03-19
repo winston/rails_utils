@@ -130,7 +130,7 @@ compiles to:
         MyApp.init();
         if(MyApp.animes) {
           if(MyApp.animes.init) { MyApp.animes.init(); }
-          if(MyApp.animes.show && MyApp.animes.show.init) { MyApp.animes.show.init(); }
+          if(MyApp.animes.init_show) { MyApp.animes.init_show(); }
         }
 //]]>
 </script>
