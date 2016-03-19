@@ -2,9 +2,13 @@
 
 ### Unreleased
 
+### Version 4.0.0
+
 - [Pull Request 28](https://github.com/winston/rails_utils/pull/28) - [Development] remove `.ruby-version` file - by @JuanitoFatas
 
 - [Pull Request 26](https://github.com/winston/rails_utils/pull/26) - Scope JavaScript methods under controller name and action - by @sohymg.
+
+[Full Changelog](https://github.com/winston/rails_utils/compare/v3.3.6...v4.0.0)
 
 ### Version 3.3.6
 
