@@ -6,6 +6,8 @@
 
 - [Pull Request 27](https://github.com/winston/rails_utils/pull/27) - Add Ruby 2.3 Frozen string literal pragma - by @JuanitoFatas
 
+[Full Changelog](https://github.com/winston/rails_utils/compare/v3.3.5...v3.3.6)
+
 ### Version 3.3.5
 
 - [Pull Request 25](https://github.com/winston/rails_utils/pull/25) - Cache `page_title` result - by @choonkeat.
