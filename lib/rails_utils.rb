@@ -51,12 +51,12 @@ module RailsUtils
       JS
     end
 
-    def flash_messages(options = {})
+    def flash_messages(options = {}, sanitizer_options = {})
       flash.collect do |key, message|
         next if message.blank?
         next if key.to_s == "timedout"
 
-        content_tag(:div, content_tag(:button, options[:button_html] || "x", type: "button", class: options[:button_class] || "close", "data-dismiss" => "alert") + message.html_safe, class: "#{flash_class(key)} fade in #{options[:class]}")
+        content_tag(:div, content_tag(:button, options[:button_html] || "x", type: "button", class: options[:button_class] || "close", "data-dismiss" => "alert") + sanitize(message, sanitizer_options), class: "#{flash_class(key)} fade in #{options[:class]}")
       end.join("\n").html_safe
     end
 
