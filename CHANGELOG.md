@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+- [Pull Request 30](https://github.com/winston/rails_utils/pull/30) - Sanitize flash messages - by @fonglh.
+
 ### Version 4.0.0
 
 - [Pull Request 28](https://github.com/winston/rails_utils/pull/28) - [Development] remove `.ruby-version` file - by @JuanitoFatas
