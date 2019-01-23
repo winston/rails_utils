@@ -3,11 +3,7 @@ ENV["RAILS_ENV"] = "test"
 
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require 'minitest/autorun'
-begin
-  require 'turn/autorun'
-rescue LoadError
-  puts 'You must `gem install turn` and `bundle install` to run tests with turn'
-end
+require 'mocha/minitest'
 
 Rails.backtrace_cleaner.remove_silencers!
 
