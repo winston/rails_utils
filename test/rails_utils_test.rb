@@ -243,12 +243,12 @@ describe "RailsUtils::ActionViewExtensions" do
     describe "when bootstrap is present" do
       it "can fade in and out" do
         set_flash :alert, "not important"
-        view.flash_messages.must_match /fade in/
+        view.flash_messages.must_match(/fade in/)
       end
 
       it "can be dismissed" do
         set_flash :alert, "not important"
-        view.flash_messages.must_match /data-dismiss=.*alert/
+        view.flash_messages.must_match(/data-dismiss=.*alert/)
       end
     end
 
@@ -256,13 +256,13 @@ describe "RailsUtils::ActionViewExtensions" do
       it "can allow override of button content (default 'x')" do
         set_flash :alert, "not important"
         view.flash_messages.must_match %r{>x</button>}
-        view.flash_messages(button_html: '').must_match %r{button class="close"}
+        view.flash_messages(button_html: '').must_match %r{button type="button" class="close"}
       end
 
       it "can allow override of button css class (default 'close')" do
         set_flash :alert, "not important"
         view.flash_messages.must_match %r{>x</button>}
-        view.flash_messages(button_class: 'abc def').must_match %r{button class="abc def"}
+        view.flash_messages(button_class: 'abc def').must_match %r{button type="button" class="abc def"}
       end
     end
 
@@ -280,13 +280,13 @@ describe "RailsUtils::ActionViewExtensions" do
     it "each message of flash should call html_safe" do
       set_flash :alert, Minitest::Mock.new
 
-      messages = view.flash.instance_variable_get(:@flashes).values.each do |message|
+      view.flash.instance_variable_get(:@flashes).values.each do |message|
         message.expect :blank?, false
         message.expect :html_safe, "test"
         message.expect :html_safe?, true
       end
 
-      view.flash_messages.must_equal "<div class=\"alert alert-danger alert-error fade in \"><button class=\"close\" data-dismiss=\"alert\" type=\"button\">x</button>test</div>"
+      view.flash_messages.must_equal "<div class=\"alert alert-danger alert-error fade in \"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">x</button>test</div>"
     end
   end
 end
